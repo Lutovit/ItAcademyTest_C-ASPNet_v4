@@ -1,0 +1,142 @@
+﻿@model ItAcademyTest.Models.TestModel
+
+
+
+<div class="container-fluid">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-auto">
+
+                @{
+                    ViewBag.Title = "Index";
+                }
+
+                <h2 class="mb-3">Задачка</h2>
+                <p>Введите размер массива (Size) целых числе и максимальное значение числа (maxValue) в массиве.</p>
+                <p>Массив будет проинициализирован случайными числами от minValue до maxValue.</p>
+                <p>далее введите целое число X и нажмите кнопу "Найти". </p>
+                <p class="mb-5">Программа выведет массив в отсортированном по неубыванию виде, а так же номер первого элемента больше введенного X</p>
+
+                @using (Html.BeginForm("Find", "Home", FormMethod.Post))
+                {
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <div class="row justify-content-center">
+
+                                <div class="col-xs-12 col-md-4">
+                                    <p> Размер массива </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4">                                    
+                                    @Html.EditorFor(model =>model.Size, new { htmlAttributes = new { @class = "form-control" } } )
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <div class="row justify-content-center">
+
+                                <div class="col-xs-12 col-md-4">
+                                    <p> Минимальное значение в массиве</p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4">
+                                    @Html.EditorFor(model => model.MinValue, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <div class="row justify-content-center">
+
+                                <div class="col-xs-12 col-md-4">
+                                    <p> Максимальное значение в массиве</p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4">
+                                    @Html.EditorFor(model => model.MaxValue, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <div class="row justify-content-center">
+
+                                <div class="col-xs-12 col-md-4">
+                                    <p> Число x </p>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4">
+                                    @Html.EditorFor(model => model.xValue, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    @Html.Hidden("NumberOfFirstElementAboveX", "-1")
+
+
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <div class="row justify-content-center">
+
+                                <div class="col-xs-12 col-md-8">                                    
+                                    <button type="submit" class="btn btn-success  mt-4">Найти номер элемента > x</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>                    
+
+                }
+
+            </div>          
+
+        </div>
+
+    </div>
+
+</div>
+
+
+

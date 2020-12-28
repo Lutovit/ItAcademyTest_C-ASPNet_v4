@@ -1,0 +1,28 @@
+﻿@model ItAcademyTest.Models.ApplicationUser
+
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <h3>Уверен, что хочешь удалить аккаунт?</h3>
+    </div>
+
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+
+                <input type="submit" value="Delete" class="btn btn-danger" />
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,83 @@
+﻿@model ItAcademyTest.Models.TestModel
+
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <h4>Не обнаружен элемент больше введенного xValue! Попробуйте задать другие входные параметры. </h4>
+        <p>(Скорее всего вы ввели число превышающее максимальный элемент массива.)</p>
+    </div>    
+</div>
+
+
+<div class="container-fluid mt-3">
+
+    <h5>Введены были следующие данные:</h5>
+
+    <table class="table mt-3">
+
+        <tr>
+            <td ><p>Размер массива: </p></td>
+            
+            <td><p>@ViewBag.Ob.Size</p></td>
+        </tr>
+
+        <tr>
+            <td><p>Минимальное значение: </p></td>
+
+            <td><p>@ViewBag.Ob.MinValue</p></td>
+        </tr>
+
+        <tr>
+            <td><p>Максимальное значение: </p></td>
+
+            <td><p>@ViewBag.Ob.MaxValue</p></td>
+        </tr>
+
+        <tr>
+            <td><p>Введенное значение: </p></td>
+
+            <td><p>@ViewBag.Ob.xValue</p></td>
+        </tr>
+    </table>
+
+
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <h5>Отсортированный по неубыванию сгенерированный массив целых: </h5>
+        </div>
+    </div>   
+   
+
+    <div>
+
+        <table class="table mt-3">
+
+            <tr>
+                <td align="center"><h5>Номер элемента</h5></td>
+
+                <td align="center"><h5>Значение элемента</h5></td>
+            </tr>
+
+            @{
+                int i = 1;
+
+                foreach (var item in ViewBag.Ob.ArrayOfInt)
+                {
+                    <tr>
+                        <td align="center">@i</td>
+                        <td align="center">@item</td>
+                    </tr>
+                    i++;
+                }
+            }
+
+        </table>
+    </div>
+    
+</div>
+
+<hr>
+
+<div mt-5>
+    <a href="/Home/Index" class="btn btn-warning">Попробовать снова =)</a>
+</div>

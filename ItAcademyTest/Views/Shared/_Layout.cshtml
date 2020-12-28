@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Max Malakhov test</title>
+
+    <style>
+
+
+
+        body, html{	
+	    -webkit-font-smoothing: antialiased;
+	    -webkit-overflow-scrolling: touch;
+        }
+
+        i:hover{
+            color: #ff7878;
+        }
+
+
+
+    </style>
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="https://use.fontawesome.com/58d05a9b02.js"></script>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mt-0">
+        
+        <a class="navbar-brand" href="/Home/Index">Max Malakhov</a>  
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">            
+            @Html.Partial("_LoginPartial")
+        </div>
+
+    </nav>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        <div class="container-fluid">
+
+            <div class="container">
+
+                <div class="row justify-content-center py-3 footer">
+
+                    <a href="https://web.facebook.com/profile.php?id=100010278967830" target="_blank" style="color: #696969">
+                        <i class="fa fa-facebook" style="font-size: 30px; padding: 20px;"></i>
+                    </a>
+
+                    <a href="https://vk.com/id321025542" target="_blank" style="color: #696969">
+                        <i class="fa fa-vk" style="font-size: 30px; padding: 20px"></i>
+                    </a>
+
+                    <a href="https://github.com/Lutovit" target="_blank" style="color: #696969">
+                        <i class="fa fa-github" aria-hidden="true" style="font-size: 30px; padding: 20px"></i>
+                    </a>
+
+                </div>
+
+                <div class="row justify-content-center py-2" style="font-size:1.2em">
+
+                    <p>Москва 2020</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+   
+</body>
+</html>

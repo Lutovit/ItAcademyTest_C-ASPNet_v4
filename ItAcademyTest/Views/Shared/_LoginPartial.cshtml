@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNet.Identity
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-nav ml-auto" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item pr-4">
+            <a href="/Home/Index" style = "color:white" > Test exercise  <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+        </li>
+
+        <li class="nav-item pr-4">
+            @Html.ActionLink("Здравствуйте   " + User.Identity.GetUserName() + "!", "ShowInfo", "Account", routeValues: null,
+           htmlAttributes: new { title = "Manage", @style = "color:white" })
+        </li>
+
+        <li class="nav-item pr-4">
+            @Html.Partial("_AdminPartial")
+        </li>
+
+
+        <li class="nav-item pr-4">
+            @Html.ActionLink("Изменить регистрационные данные", "Edit", "Account", routeValues: null, htmlAttributes: new { id = "editLink", @style = "color:white" })
+        </li>
+
+        <li class="nav-item pr-4">
+            @Html.ActionLink("Удалить аккаунт", "Delete", "Account", routeValues: null, htmlAttributes: new { id = "deleteLink", @style = "color:white" })
+        </li>
+
+        <li class="nav-item pr-4">
+            <a style="color : white" href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>
+        </li>
+
+    </ul>
+    }
+}
+else
+{
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item pr-4" >
+            @Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:white"})
+        </li>
+
+        <li class="nav-item pr-4" >
+            @Html.ActionLink("Вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @style = "color:white"})
+        </li>
+
+    </ul>
+}

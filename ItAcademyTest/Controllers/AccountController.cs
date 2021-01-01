@@ -151,6 +151,30 @@ namespace AspNetIdentityApp.Controllers
         }
 
 
+        [Authorize(Roles ="admin")]
+      
+      
+
+
+        //вызывается в AdminController при попытке удалить пользователя в админ панели, если ты сам являешься этим пользователем
+        //и ты естественно еще и админ.
+        public async Task<ActionResult> AdminSelfDelete()
+        {
+            ApplicationUser user = await UserManager.FindByEmailAsync(User.Identity.Name);
+
+            if (user != null)
+            {
+                IdentityResult result = await UserManager.DeleteAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("LogOff", "Account");
+                }
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+
 
         [Authorize]
         public async Task<ActionResult> Edit()

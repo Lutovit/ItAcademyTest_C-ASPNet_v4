@@ -22,7 +22,7 @@ namespace ItAcademyTest.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (tm.Size <= 0)
+                if (tm.Size <= 0 || tm.Size > 100)
                 {
                     return RedirectToAction("WrongArrSize");
                 }

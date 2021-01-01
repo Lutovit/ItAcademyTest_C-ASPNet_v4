@@ -156,6 +156,12 @@ namespace ItAcademyTest.Controllers
 
             if (user != null)
             {
+                //если удаляемый пользователь ты дружок, то вызывается метод DeleteConfirmed() контролера Account
+                if (user.Email == User.Identity.Name) 
+                {
+                    return RedirectToAction("AdminSelfDelete", "Account");           
+                }
+
                 IdentityResult result = await UserManager.DeleteAsync(user);
 
                 if (result.Succeeded)
